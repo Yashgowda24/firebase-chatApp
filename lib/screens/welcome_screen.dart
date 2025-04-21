@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:chat_app/components/rounded_button.dart';
 import 'package:chat_app/screens/login_screen.dart';
 import 'package:chat_app/screens/registration_screen.dart';
@@ -54,21 +55,25 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               children: <Widget>[
                 Hero(
                   tag: 'logo',
-                  child: Container(
-                    child: Image.asset('images/logo.png'),
+                  child: SizedBox(
                     height: 60.0,
+                    child: Image.asset('images/logo.png'),
                   ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
+                TypewriterAnimatedTextKit(
+                  text: const [
+                    'Flash Chat',
+                  ],
+                  textStyle: const TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
+                  speed: const Duration(milliseconds: 150),
+                  repeatForever: true,
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 48.0,
             ),
             RoundedButton(
@@ -91,5 +96,3 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     );
   }
 }
-
-
